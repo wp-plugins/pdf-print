@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=10&product_id=13
 Tags: pdf, print, pdf print, pdf and print, pdf button, print button, pdf print button, print content, pdf content, pdf print content, pdf post, print post, print post content, generate pdf, generate pdf content, generate post pdf
 Requires at least: 3.0
-Tested up to: 3.7.1
-Stable tag: 1.5
+Tested up to: 3.8
+Stable tag: 1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,7 +23,7 @@ PDF & Print allows you in the easiest and most flexible way to create PDF and Pr
 * Actions: Ability to create PDF and Print search results and pages of archives with adding appropriate buttons to the content.
 * Actions: Ability to create PDF and Print content from custom post type with adding appropriate buttons to the content.
 * Actions: Ability to create PDF and Print portfolio or single portfolio for Portfolio plugin (powered by bestwebsoft.com) with adding appropriate buttons to the content.
-* Actions: Ability to use execution of shorcodes in pdf and printing output.
+* Actions: Ability to use execution of shortcode in pdf and printing output.
 * Display: This plugin allows you to select the position of buttons in content (top left, top right, bottom left, bottom right), search or archives pages or custom post type (align left, align right).
 
 = Recommended Plugins =
@@ -31,7 +31,7 @@ PDF & Print allows you in the easiest and most flexible way to create PDF and Pr
 The author of the PDF & Print also recommends the following plugins:
 
 * <a href="http://wordpress.org/plugins/updater/">Updater</a> - This plugin updates WordPress core and the plugins to the recent versions. You can also use the auto mode or manual mode for updating and set email notifications.
-There is also a premium version of the plugin <a href="http://bestwebsoft.com/plugin/updater-pro/?k=d74ca3ffdf910e4ec8ee8774573e7b67">Updater Pro</a> with more useful features available. It allows to update plugins and WordPress core on several websites. It can make backup of all your files and database before updating.
+There is also a premium version of the plugin <a href="http://bestwebsoft.com/plugin/updater-pro/?k=d74ca3ffdf910e4ec8ee8774573e7b67">Updater Pro</a> with more useful features available. It can make backup of all your files and database before updating. Also it can forbid some plugins or WordPress Core update.
 
 = Translate =
 
@@ -53,7 +53,7 @@ We can fix some things for free for the users who provide translation of our plu
 
 1. Upload `pdf-print` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin via the 'Plugins' menu in WordPress.
-3. Plugin settings are located in 'Settings', 'PDF & Print Settings'.
+3. Plugin settings are located in "BWS Plugins" > "PDF & Print".
 
 == Frequently Asked Questions ==
 
@@ -78,19 +78,19 @@ And you need to add the source code <?php if ( function_exists ( 'pdfprnt_show_b
 
 Menu to generate pdf documents is displayed if you are an administrator only in the pages of the archives and if there is at least one search result.
 
-= Buttons do not appear on potfolio and porfolio page =
+= Buttons do not appear on portfolio and portfolio page =
 
 In order to display PDF and Print Buttons of Portfolio plugin for the post it is necessary to insert the source code <?php if ( function_exists( 'pdfprnt_show_buttons_for_bws_portfolio_post' ) ) echo pdfprnt_show_buttons_for_bws_portfolio_post(); ?> in files portfolio.php or portfolio-post.php which are located in the template.
 
 In order to display PDF and Print Buttons of Portfolio plugin for all posts on a page it is neessary to insert the source code <?php if ( function_exists( 'pdfprnt_show_buttons_for_bws_portfolio' ) ) echo pdfprnt_show_buttons_for_bws_portfolio(); ?> in file portfolio.php which is located in the template.
 
-= Why are PDF and Print buttons not diplayed in the custom post type =
+= Why are PDF and Print buttons not displayed in the custom post type =
 
-In order to display PDF and Print Buttons of Portfolio plugin for custom post type it is neessary to insert the source code <?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( $query_posts ); ?> where you need to specify query parameters for your custom post. For example: <?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( 'post_type=gallery&orderby=post_date' ); ?> or <?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( array( 'post_type' => 'gallery', 'orderby' => 'post_date' ) ); ?>. To find more information on syntax for assigning parameters to function see <a href="http://codex.wordpress.org/Class_Reference/WP_Query#Parameters">here</a>.
+In order to display PDF and Print Buttons of Portfolio plugin for custom post type it is necessary to insert the source code <?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( $query_posts ); ?> where you need to specify query parameters for your custom post. For example: <?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( 'post_type=gallery&orderby=post_date' ); ?> or <?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( array( 'post_type' => 'gallery', 'orderby' => 'post_date' ) ); ?>. To find more information on syntax for assigning parameters to function see <a href="http://codex.wordpress.org/Class_Reference/WP_Query#Parameters">here</a>.
 
-= If I have shorcodes on the page, but I don't want them to be printed (add to pdf) =
+= If I have shortcode on the page, but I don't want them to be printed (add to pdf) =
 
-Go to the Settings page and unmark checkbox 'Settings for shorcodes'.
+Go to the Settings page and unmark checkbox 'Settings for shortcode'.
 
 == Screenshots ==
 
@@ -102,6 +102,12 @@ Go to the Settings page and unmark checkbox 'Settings for shorcodes'.
 6. PDF output page example.
 
 == Changelog ==
+
+= V1.6 - 16.01.2014 =
+* Update : BWS plugins section is updated.
+* Update : We updated all functionality for wordpress 3.8.
+* Bugfix : Problem with PDF and Print buttons on static homepage is fixed.
+* Bugfix : Problem with Chinese, Japanese and rtl languages is fixed.
 
 = V1.5 - 01.11.2013 =
 * Update : We updated all functionality for wordpress 3.7.1.
@@ -128,6 +134,9 @@ Go to the Settings page and unmark checkbox 'Settings for shorcodes'.
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V1.6 =
+BWS plugins section is updated. We updated all functionality for wordpress 3.8. Problem with PDF and Print buttons on static homepage is fixed. Problem with Chinese, Japanese and rtl languages is fixed.
 
 = V1.5 =
 We updated all functionality for wordpress 3.7.1. Activation of radio button or checkbox by clicking on its label. Add checking installed wordpress version.
