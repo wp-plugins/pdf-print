@@ -18,17 +18,17 @@
 * styles for rate-support div on the settings page
 */
 .bws-plugin-reviews {
-    background: none repeat scroll 0 0 #BEE1F1;
-    border: 1px solid #70A8C2;
-    border-radius: 3px;
-    max-width: 700px;
+	background: none repeat scroll 0 0 #BEE1F1;
+	border: 1px solid #70A8C2;
+	border-radius: 3px;
+	max-width: 700px;
 }
 .bws-plugin-reviews-rate {
-    padding: 10px;
-    border-bottom: 1px dashed #70A8C2;
+	padding: 10px;
+	border-bottom: 1px dashed #70A8C2;
 }
 .bws-plugin-reviews-support {
-    padding: 10px;
+	padding: 10px;
 }
 
 /* PDF-Print settings */
@@ -52,11 +52,12 @@
 .pdfprnt-right a {
 	padding: 0 5px;
 }
-#wpadminbar li#wp-admin-bar-pdfprnt-template-1 a,
-#wpadminbar li#wp-admin-bar-pdfprnt-template-2 a,
-#wpadminbar li#wp-admin-bar-pdfprnt-template-3 a {
+#wpadminbar #wp-admin-bar-pdfprnt-bar-menu-default li {
+	cursor: pointer;
+}
+#wpadminbar #wp-admin-bar-pdfprnt-bar-menu-default li a {
 	height: auto;
-	padding: 8px 0 0 0;
+	padding: 8px 0;
 	text-align: center;
 }
 #wpadminbar li#wp-admin-bar-pdfprnt-bar-menu span.admin-bar-menu-bws-icon {

@@ -4,7 +4,7 @@ Plugin Name: PDF & Print
 Plugin URI:  http://bestwebsoft.com/plugin/
 Description: Plugin adds PDF creation and Print button on your site.
 Author: BestWebSoft
-Version: 1.6
+Version: 1.7
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -30,7 +30,7 @@ require_once( dirname( __FILE__ ) . '/bws_menu/bws_menu.php' );
 /* Add our own menu */
 if ( ! function_exists( 'pdfprnt_add_pages' ) ) {
 	function pdfprnt_add_pages() {
-		add_menu_page( 'BWS Plugins', 'BWS Plugins', 'manage_options', 'bws_plugins', 'bws_add_menu_render', WP_CONTENT_URL . "/plugins/google-plus-one/images/px.png", 1001 );
+		add_menu_page( 'BWS Plugins', 'BWS Plugins', 'manage_options', 'bws_plugins', 'bws_add_menu_render', plugins_url( 'images/px.png', __FILE__ ), 1001 );
 		add_submenu_page( 'bws_plugins', __( 'PDF & Print Settings', 'pdf-print' ), __( 'PDF & Print', 'pdf-print' ), 'manage_options', "pdf-print.php", 'pdfprnt_settings_page' );
 	}
 }
@@ -38,7 +38,13 @@ if ( ! function_exists( 'pdfprnt_add_pages' ) ) {
 /* Register settings for plugin */
 if ( ! function_exists( 'pdfprnt_settings' ) ) {
 	function pdfprnt_settings() {
-		global $pdfprnt_options_array, $pdfprnt_output_count_buttons, $wpmu;
+		global $pdfprnt_options_array, $pdfprnt_output_count_buttons, $wpmu, $bws_plugin_info;
+
+		if (  function_exists( 'get_plugin_data' ) && ( ! isset( $bws_plugin_info ) || empty( $bws_plugin_info ) ) ) {
+			$plugin_info = get_plugin_data( __FILE__ );	
+			$bws_plugin_info = array( 'id' => '101', 'version' => $plugin_info["Version"] );
+		}
+
 		$pdfprnt_output_count_buttons	=	0;		/* Variable to verify performance number of once function. */
 		$pdfprnt_default_post_types		=	array();
 		foreach ( get_post_types( array( 'public' => 1, 'show_ui' => 1,	'_builtin' => true ), 'names' ) as $value )
@@ -58,7 +64,8 @@ if ( ! function_exists( 'pdfprnt_settings' ) ) {
 			'tmpl_search'					=>	1,
 			'tmpl_custom'					=>	1,
 			'tmpl_shorcode'					=>	1,
-			'use_types_posts'				=>	$pdfprnt_default_post_types
+			'use_types_posts'				=>	$pdfprnt_default_post_types,
+			'show_print-window'				=>	0
 		);
 		if ( 1 == $wpmu ) {
 			if ( ! get_site_option( 'pdfprnt_options_array' ) ) {
@@ -72,6 +79,8 @@ if ( ! function_exists( 'pdfprnt_settings' ) ) {
 			$pdfprnt_options_array	= get_site_option( 'pdfprnt_options_array' );
 		else 
 			$pdfprnt_options_array	= get_option( 'pdfprnt_options_array' );
+		if ( ! isset( $pdfprnt_options_array['show_print_window'] ) )
+			$pdfprnt_options_array['show_print_window'] = 0;
 		$pdfprnt_options_array	= array_merge( $pdfprnt_options_array_defaults, $pdfprnt_options_array );
 	}
 }
@@ -79,12 +88,7 @@ if ( ! function_exists( 'pdfprnt_settings' ) ) {
 /* Function check if plugin is compatible with current WP version  */
 if ( ! function_exists ( 'pdfprnt_version_check' ) ) {
 	function pdfprnt_version_check() {
-		global $wp_version, $bws_plugin_info;
-
-		if (  function_exists( 'get_plugin_data' ) && ( ! isset( $bws_plugin_info ) || empty( $bws_plugin_info ) ) ) {
-			$plugin_info = get_plugin_data( __FILE__ );	
-			$bws_plugin_info = array( 'id' => '101', 'version' => $plugin_info["Version"] );
-		}
+		global $wp_version;
 
 		$plugin_data	=	get_plugin_data( __FILE__, false );
 		$require_wp		=	"3.0"; /* Wordpress at least requires version */
@@ -130,6 +134,7 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 			$pdfprnt_options_array['show_btn_pdf_custom']			=	isset( $_REQUEST['pdfprnt_show_btn_pdf_custom'] ) ? 1 : 0;
 			$pdfprnt_options_array['show_btn_print_custom']			=	isset( $_REQUEST['pdfprnt_show_btn_print_custom'] ) ? 1 : 0;
 			$pdfprnt_options_array['tmpl_shorcode']					=	isset( $_REQUEST['pdfprnt_tmpl_shorcode'] ) ? 1 : 0;
+			$pdfprnt_options_array['show_print_window']				=	isset( $_REQUEST['pdfprnt_show_print_window'] ) ? 1 : 0;
 			$pdfprnt_options_array['use_types_posts']				=	isset( $_REQUEST['pdfprnt_use_types_posts'] ) ? $_REQUEST['pdfprnt_use_types_posts'] : array();
 			update_option ( 'pdfprnt_options_array', $pdfprnt_options_array );
 			$message	=	__( 'Settings saved.', 'pdf-print' );
@@ -319,6 +324,12 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 							</th>
 							<td>
 								<label><input type="checkbox" name="pdfprnt_tmpl_shorcode"  <?php if ( 1 == $pdfprnt_options_array['tmpl_shorcode'] ) echo 'checked="checked"'; ?> /> <span><?php echo __( 'Do!', 'pdf-print' ); ?></span></label>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row"><?php echo __( 'Show the print window', 'pdf-print' ); ?></th>
+							<td>
+								<label><input type="checkbox" name="pdfprnt_show_print_window" <?php if ( 1 == $pdfprnt_options_array['show_print_window'] ) echo 'checked="checked"'; ?> /> <span><?php echo __( 'Mark the checkbox to show it', 'pdf-print' ); ?></span></label><br />
 							</td>
 						</tr>
 						<tr>
@@ -661,6 +672,8 @@ if ( ! function_exists( 'pdfprnt_generate_template' ) ) {
 						}
 						if ( $isprint ) : ?>
 						<script type="text/javascript" src="<?php echo plugins_url( 'js/pdfprnt.print.js', __FILE__ ); ?>"></script>
+						<?php if ( 1 == $pdfprnt_options_array['show_print_window'] ) {
+							echo '<script>window.onload = function(){ window.print(); };</script>';	} ?>
 					<?php endif; ?>
 				</head>
 				<body>
