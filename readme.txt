@@ -111,7 +111,7 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
-= V1.7 - 21.02.2014 =
+= V1.7 - 21.02.2014 = 
 * New : We added posibility to turn on showing of Printer choosing window.
 * Update : Screenshots are updated.
 * Update : We updated all functionality for wordpress 3.8.1.
