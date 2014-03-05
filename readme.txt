@@ -4,7 +4,7 @@ Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=10
 Tags: pdf, print, pdf print, pdf and print, pdf button, print button, pdf print button, print content, pdf content, pdf print content, pdf post, print post, print post content, generate pdf, generate pdf content, generate post pdf
 Requires at least: 3.0
 Tested up to: 3.8.1
-Stable tag: 1.7
+Stable tag: 1.7.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,7 +15,10 @@ Add PDF and Print button to your WordPress website.
 PDF & Print allows you in the easiest and most flexible way to create PDF and Print page with adding appropriate buttons to the content. PDF & Print using mpdf library under GPLv2 license.
 
 <a href="http://wordpress.org/plugins/pdf-print/faq/" target="_blank">FAQ</a>
+
 <a href="http://support.bestwebsoft.com" target="_blank">Support</a>
+
+<a href="http://bestwebsoft.com/plugin/pdf-print-pro/?k=6a544b359e625de8281a635315d84a70" target="_blank">Upgrade to Pro Version</a>
 
 = Features =
 
@@ -111,6 +114,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V1.7.1 - 05.03.2014 =
+* Budfix : Plugin optimization is done.
+* Update : Plugin tabs is added.
+
 = V1.7 - 21.02.2014 = 
 * New : We added posibility to turn on showing of Printer choosing window.
 * Update : Screenshots are updated.
@@ -147,6 +154,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V1.7.1 =
+Plugin optimization is done. Plugin tabs is added.
 
 = V1.7 =
 We added posibility to turn on showing of Printer choosing window. Screenshots are updated. We updated all functionality for wordpress 3.8.1.
