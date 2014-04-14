@@ -119,7 +119,7 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 == Changelog ==
 
 = V1.7.2 - 14.04.2014 =
-* Update : We updated all functionality for wordpress 3.8.2.
+* Update : We updated all functionality for wordpress 3.8.2. 
 
 = V1.7.1 - 05.03.2014 =
 * Budfix : Plugin optimization is done.
