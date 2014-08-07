@@ -1,0 +1,69 @@
+/* PDF-Print settings */
+.pdfprnt-top-left,
+.pdfprnt-bottom-left,
+.pdfprnt-left {
+	text-align: left;
+	padding: 5px;
+}
+.pdfprnt-top-right,
+.pdfprnt-bottom-right,
+.pdfprnt-right {
+	text-align: right;
+	padding: 5px;
+}
+.pdfprnt-top-left a,
+.pdfprnt-bottom-left a,
+.pdfprnt-top-right a,
+.pdfprnt-bottom-right a,
+.pdfprnt-left a,
+.pdfprnt-right a {
+	padding: 0 5px;
+}
+#wp-admin-bar-pdfprnt-bar-menu-default li {
+	cursor: pointer;
+}
+#wp-admin-bar-pdfprnt-bar-menu-default li:hover {
+	background-color: #2E9EC7 !important;
+}
+#wpadminbar #wp-admin-bar-pdfprnt-bar-menu-default li a {
+	height: auto;
+	padding: 8px 0;
+	text-align: center;
+}
+#wpadminbar li#wp-admin-bar-pdfprnt-bar-menu span.admin-bar-menu-bws-icon {
+	background: url("../bws_menu/images/icon_16_single.png") no-repeat scroll center center transparent;
+	float: left;
+	position: relative;
+	width: 16px;
+	height: 16px;
+	margin: 6px 6px 0 0;
+	opacity: 0.7;
+}
+
+/* PDF-Print settings .form-table */
+#pdfprnt_settings_form th {
+	padding: 10px;
+}
+.pdfprnt_explanation {
+	color: #888;
+	font-size: 10px;
+	display: block;
+}
+.pdfprnt_settings_table td div {
+	float: left;
+	text-align: center;
+	margin: 0 5px;
+}
+.pdfprnt_settings_table td div img {
+	border:1px solid #777;
+	display:block;
+	width: 80px;
+	height: 100px;
+}
+.pdfprnt_settings_table td {
+	vertical-align: top;
+	padding: 10px;
+}
+.pdfprnt_settings_table td select {
+	min-width: 210px;
+}
